@@ -1,6 +1,7 @@
 # -------------------------------------------------------------------------------------------
 # Deployment
 # -------------------------------------------------------------------------------------------apiVersion: apps/v1
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,7 +17,11 @@ spec:
         app: nginx-deployment
     spec:
       containers:
-        - name: nginx
-          image: nginx:latest
-          ports:
-            - containerPort: 80
+      - name: nginx
+        image: nginx:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
