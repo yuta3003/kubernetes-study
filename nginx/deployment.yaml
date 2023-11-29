@@ -6,19 +6,25 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
+  labels:
+    component: nginx
 spec:
   replicas: 3
+  # Deploymentで使用するpodを指定
   selector:
     matchLabels:
-      app: nginx-deployment
+      # app: nginx-deployment
+      component: nginx
+  # Deploymentの情報を設定
   template:
     metadata:
       labels:
-        app: nginx-deployment
+        # app: nginx-deployment
+        component: nginx
     spec:
       containers:
       - name: nginx
-        image: nginx:latest
+        image: nginx:1.25
         resources:
           limits:
             memory: "128Mi"
