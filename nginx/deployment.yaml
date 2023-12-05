@@ -10,12 +10,11 @@ metadata:
     component: nginx
 spec:
   replicas: 3
-  # Deploymentで使用するpodを指定
   selector:
     matchLabels:
       # app: nginx-deployment
       component: nginx
-  # Deploymentの情報を設定
+  # podの情報を定義
   template:
     metadata:
       labels:
