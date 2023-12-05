@@ -7,9 +7,9 @@ kind: Service
 metadata:
   name: nginx-service
 spec:
-  type: LoadBalancer
+  type: LoadBalancer 
   selector:
-    app: nginx-service
+    app: nginx-deployment
   ports:
   - name: "nginx-port"
     protocol: "TCP"
