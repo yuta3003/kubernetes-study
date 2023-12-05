@@ -8,12 +8,12 @@ metadata:
   name: nginx-service
 spec:
   type: LoadBalancer
+  # podを指定する
   selector:
-    # app: nginx-deployment
     component: nginx
   ports:
   - name: "nginx-port"
     protocol: "TCP"
     port: 8080
-    targetPort: 80
     nodePort: 30080
+    targetPort: 80

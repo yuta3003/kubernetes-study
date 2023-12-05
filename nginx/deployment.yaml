@@ -7,18 +7,16 @@ kind: Deployment
 metadata:
   name: nginx-deployment
   labels:
-    component: nginx
+    component: nginx-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      # app: nginx-deployment
       component: nginx
   # podの情報を定義
   template:
     metadata:
       labels:
-        # app: nginx-deployment
         component: nginx
     spec:
       containers:
